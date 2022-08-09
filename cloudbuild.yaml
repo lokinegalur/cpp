@@ -1,0 +1,6 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/lokinegalur/flask_crud.git'] 
+- name: 'google/cloud-sdk'
+  entrypoint: 'gsutil'
+  args: ['cp', '-r', 'flask_crud', 'gs://tf_test_bucket1']  
