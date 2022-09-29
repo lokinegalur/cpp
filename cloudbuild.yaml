@@ -2,13 +2,13 @@ steps:
   - name: 'gcr.io/cloud-builders/git'
     args:
     - clone
-    - --recurse-submodules
-     - git@github.com:lokinegalur/cpp.git
+    - --recurse-submod
+    - git@github.com:lokinegalur/cpp.git
   # install dependencies for unit testing
   - name: python:3.8-slim
     entrypoint: pip
     args: ["install", "-r", "requirements-test.txt", "--user"]
-    
+
   - name: gcr.io/cloud-builders/git
     entrypoint: /bin/bash
     args:
