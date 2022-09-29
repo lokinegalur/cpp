@@ -1,18 +1,24 @@
 steps:
-  - name: 'gcr.io/cloud-builders/git'
-    args:
-    - clone
-    - --recurse-submodules
-    - git@github.com:lokinegalur/cpp.git
   # install dependencies for unit testing
   - name: python:3.8-slim
     entrypoint: pip
     args: ["install", "-r", "requirements-test.txt", "--user"]
 
-  - name: gcr.io/cloud-builders/git
-    entrypoint: /bin/bash
-    args:
-      - -c
-      - |
-        echo "saving newly added pipeline folders to new_pipelines"
-        git diff --name-only HEAD~1 | awk -F "/*[^/]*/*$" '{ print ($1 == "" ? "." : $1); }' | sort | uniq
+  # Run tests on pipelines
+  - name: python:3.8-slim
+    entrypoint: python3.8
+    args: ["-m", "pytest", "-s", "pipelines/"]
+
+  # Install dependencies for pipeline
+  - name: python
+    entrypoint: pip
+    args: ["install", "-r", "pipelines/requirements.txt", "--user"]
+
+  # Create Classic template for pipeline
+  - name: python
+    entrypoint: python3
+    args: ["-m", "pipelines/dfpipeline.py","--secretManagerID", "authkey", "--gcsBucket", "load-data-into-bucket" ,"--url1", "https://cdn-api.co-vin.in/api/v2/appointment/centers/public/findByLatLong?lat=28.72&long=77.14", "--dataset", "csv_to_bq", "--tableID" ,"external_api_bq_data"]
+
+  # # Running templates
+  # - name: gcr.io/cloud-builders/gcloud
+  #   args: ["dataflow", "jobs", "run", ""]
