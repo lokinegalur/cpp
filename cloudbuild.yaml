@@ -4,10 +4,10 @@ steps:
     entrypoint: pip
     args: ["install", "-r", "requirements-test.txt", "--user"]
 
-  # Run tests on pipelines
-  - name: python:3.8-slim
-    entrypoint: python3.8
-    args: ["-m", "pytest", "-s", "pipelines/"]
+  # # Run tests on pipelines
+  # - name: python:3.8-slim
+  #   entrypoint: python3.8
+  #   args: ["-m", "pytest", "-s", "pipelines/"]
 
   # Install dependencies for pipeline
   - name: python
