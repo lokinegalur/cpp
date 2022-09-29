@@ -1,6 +1,12 @@
 steps:
-- name: 'gcr.io/cloud-builders/git'
-  args: ['clone', 'https://github.com/lokinegalur/flask_crud.git'] 
-- name: 'google/cloud-sdk'
-  entrypoint: 'gsutil'
-  args: ['cp', '-r', 'flask_crud', 'gs://tf_test_bucket1']  
+  # install dependencies for unit testing
+  - name: python:3.8-slim
+    entrypoint: pip
+    args: ["install", "-r", "requirements-test.txt", "--user"]
+  - name: gce.io/cloud-builders/git
+    entrypoint: /bin/bash
+    args:
+      - -c
+      - |
+        echo "saving newly added pipeline folders to new_pipelines"
+        git diff --name-only HEAD~1 | awk -F "/*[^/]*/*$" '{ print ($1 == "" ? "." : $1); }' | sort | uniq
