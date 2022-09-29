@@ -10,9 +10,9 @@ steps:
   #   args: ["-m", "pytest", "-s", "pipelines/"]
 
   # Install dependencies for pipeline
-  - name: python
-    entrypoint: pip
-    args: ["install", "-r", "requirements.txt", "--user"]
+  # - name: python
+  #   entrypoint: pip
+  #   args: ["install", "-r", "requirements.txt", "--user"]
 
   # Create Classic template for pipeline
   - name: python
