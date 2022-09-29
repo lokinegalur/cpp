@@ -117,8 +117,8 @@ def run(argv=None):
     google_cloud_options.temp_location = 'gs://csv_to_bigquery_load/Temp/'
     pipeline_options.view_as(StandardOptions).runner = 'DataflowRunner'
     pipeline_options.view_as(StandardOptions).streaming = False
-    # setup_options = pipeline_options.view_as(SetupOptions)
-    # setup_options.setup_file = './setup.py'
+    setup_options = pipeline_options.view_as(SetupOptions)
+    setup_options.setup_file = './setup.py'
     setup_options.save_main_session = True
     pipeline_options.view_as(
     WorkerOptions).subnetwork = "https://www.googleapis.com/compute/alpha/projects/q-gcp-8566-nj-dhs-22-08/regions/us-central1/subnetworks/subnet-1"
