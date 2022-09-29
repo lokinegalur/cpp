@@ -1,17 +1,3 @@
-# pandas
-# fsspec
-# google-api-core
-# google-cloud-bigquery
-# pysftp
-# gcsfs
-# pydicom
-# google.cloud.storage>=1.21.0
-# google-oauth2-tool>=0.0.3
-# google-auth>=1.30.0
-# google-cloud-logging>=1.15.0
-# apache-beam[gcp]>=2.24.0
-# google-cloud-core>=1.4.1
-
 pandas
 fsspec
 google-api-core
@@ -19,9 +5,23 @@ google-cloud-bigquery
 pysftp
 gcsfs
 pydicom
-google.cloud.storage==1.21.0
-google-oauth2-tool==0.0.3
-google-auth==1.30.0
-google-cloud-logging==1.15.0
-apache-beam[gcp]==2.24.0
-google-cloud-core==1.4.1
+google.cloud.storage>=1.21.0
+google-oauth2-tool>=0.0.3
+google-auth>=1.30.0
+google-cloud-logging>=1.15.0
+apache-beam[gcp]>=2.24.0
+google-cloud-core>=1.4.1
+
+# pandas
+# fsspec
+# google-api-core
+# google-cloud-bigquery
+# pysftp
+# gcsfs
+# pydicom
+# google.cloud.storage==1.21.0
+# google-oauth2-tool==0.0.3
+# google-auth==1.30.0
+# google-cloud-logging==1.15.0
+# apache-beam[gcp]==2.24.0
+# google-cloud-core==1.4.1
