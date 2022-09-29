@@ -15,10 +15,9 @@ steps:
     args: ["install", "-r", "pipelines/requirements.txt", "--user"]
 
   # Create Classic template for pipeline
-  - name: python
+  - name: python3
     entrypoint: python
-    args: ["-m", "pipelines/dfpipeline","--runner", "DataflowRunner","--secretManagerID", "authkey", "--gcsBucket", "load-data-into-bucket" ,"--url1", "https://cdn-api.co-vin.in/api/v2/appointment/centers/public/findByLatLong?lat=28.72&long=77.14"] #"--dataset", "csv_to_bq", "--tableID" ,"external_api_bq_data"]
-
+    args: ["-m","pipelines/dfpipeline", "--runner" ,"DataflowRunner", "--project", "q-gcp-8566-nj-dhs-22-08", "--staging_location", "gs://csv_to_bigquery_load/Staging", "--temp_location", "gs://csv_to_bigquery_load/Temp","--template_location" ,"gs://csv_to_bigquery_load/Template/","--region", "us-central1"]
   # # Running templates
   # - name: gcr.io/cloud-builders/gcloud
   #   args: ["dataflow", "jobs", "run", ""]
