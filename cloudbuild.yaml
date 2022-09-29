@@ -3,7 +3,7 @@ steps:
   - name: python:3.8-slim
     entrypoint: pip
     args: ["install", "-r", "requirements-test.txt", "--user"]
-  - name: gce.io/cloud-builders/git
+  - name: gcr.io/cloud-builders/git
     entrypoint: /bin/bash
     args:
       - -c
