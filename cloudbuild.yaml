@@ -15,7 +15,7 @@ steps:
     args: ["install", "-r", "pipelines/requirements.txt", "--user"]
 
   # Create Classic template for pipeline
-  - name: python3
+  - name: python
     entrypoint: python
     args: ["-m","pipelines/dfpipeline", "--runner" ,"DataflowRunner", "--project", "q-gcp-8566-nj-dhs-22-08", "--staging_location", "gs://csv_to_bigquery_load/Staging", "--temp_location", "gs://csv_to_bigquery_load/Temp","--template_location" ,"gs://csv_to_bigquery_load/Template/","--region", "us-central1"]
   # # Running templates
