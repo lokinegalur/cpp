@@ -2,7 +2,7 @@ steps:
   # install dependencies for unit testing
   - name: python:3.8-slim
     entrypoint: pip
-    args: ["install", "-r", "requirements-test.txt", "--user"]
+    args: ["install", "-r", "requirements-test.txt"]
 
   # # Run tests on pipelines
   # - name: python:3.8-slim
@@ -12,7 +12,7 @@ steps:
   # Install dependencies for pipeline
   - name: python
     entrypoint: pip
-    args: ["install", "-r", "requirements.txt", "--user"]
+    args: ["install", "-r", "requirements.txt"]
 
   # Create Classic template for pipeline
   - name: python:3.8
