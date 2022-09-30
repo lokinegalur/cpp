@@ -12,7 +12,7 @@ steps:
   # Install dependencies for pipeline
   - name: python:3.8
     entrypoint: pip3
-    args: ["install", "-r", "requirements.txt"]
+    args: ["install", "-r", "requirements.txt","--user"]
 
   # Create Classic template for pipeline
   - name: python:3.8
