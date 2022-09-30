@@ -23,3 +23,5 @@ steps:
   # Running templates
   - name: gcr.io/cloud-builders/gcloud
     args: ["dataflow", "jobs", "run", "word_count_cicd","--gcs-location","gs://csv_to_bigquery_load/Template_wordcount"]
+options:
+    logging: CLOUD_LOGGING_ONLY
