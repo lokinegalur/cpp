@@ -18,7 +18,7 @@ steps:
   - name: python:3.8
     entrypoint: python
     args: ["-m","dfpipeline","--runner","DataflowRunner","--project","aesthetic-genre-356605","--input", "gs://csv_to_bigquery_load_1/count_me.txt.txt","--output", "gs://csv_to_bigquery_load_1/output.txt", "--staging_location", "gs://csv_to_bigquery_load_1/Staging", "--temp_location", "gs://csv_to_bigquery_load_1/Temp", "--template_location", "gs://csv_to_bigquery_load_1/Template_wordcount", "--region", "us-central1"]
-    # args: ["-m", "dfpipeline","--runner", "DataflowRunner","--project", "q-gcp-8566-nj-dhs-22-08","--staging_location","gs://csv_to_bigquery_load_1/Staging","--temp_location", "gs://csv_to_bigquery_load_1/Temp", "--template_location","gs://csv_to_bigquery_load_1/Template_new11","--region us-central1"]
+    # args: ["-m", "dfpipeline","--runner", "DataflowRunner","--project", "q-gcp-8566-nj-dhs-22-08","--staging_location","gs://csv_to_bigquery_load_1/Staging","--temp_location", "gs://csv_to_bigquery_load_1/Temp", "--template_location","gs://csv_to_bigquery_load_1/Template_new11","--region us-central1"
     timeout: '2400s'
   # Running templates
   - name: gcr.io/cloud-builders/gcloud
